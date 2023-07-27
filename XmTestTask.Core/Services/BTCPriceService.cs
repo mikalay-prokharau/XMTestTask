@@ -1,4 +1,5 @@
-﻿using XmTestTask.Core.Entities;
+﻿using System.Threading.Tasks;
+using XmTestTask.Core.Entities;
 using XmTestTask.Core.Interfaces;
 
 namespace XmTestTask.Core.Services

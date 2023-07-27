@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using XmTestTask.Core.Entities;
+﻿using XmTestTask.Core.Entities;
 
 namespace XmTestTask.Core.Interfaces
 {

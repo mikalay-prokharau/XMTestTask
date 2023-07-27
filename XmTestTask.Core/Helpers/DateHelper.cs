@@ -28,7 +28,7 @@
             if (!long.TryParse(date?.ToString(), out long longDate))
                 return false;
 
-            DateTimeOffset startDateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(longDate);
+            DateTimeOffset startDateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(longDate);
             return (startDateTimeOffset.UtcDateTime.Ticks % TimeSpan.TicksPerHour) == 0;
         }
     }

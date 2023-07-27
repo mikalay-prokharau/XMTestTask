@@ -19,7 +19,7 @@ namespace XmTestTask.API.ViewModels
         {
             return new BTCPriceViewModel()
             {
-                Date = DateHelper.ConvertIntDateToUnixInMilliseconds(btcPrice.Date),
+                Date = DateHelper.ConvertIntDateToUnix(btcPrice.Date),
                 Price = btcPrice.Price
             };
         }

@@ -1,11 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using XmTestTask.Core.Interfaces;
+﻿using XmTestTask.Core.Interfaces;
 
 namespace XmTestTask.Infrastructure.Data
 {

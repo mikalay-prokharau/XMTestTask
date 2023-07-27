@@ -1,15 +1,11 @@
-﻿using System.Net.Http;
-using System.Reflection;
-using Autofac;
+﻿using Autofac;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Polly;
 using Polly.Extensions.Http;
-using XmTestTask.Core.Entities;
 using XmTestTask.Core.Interfaces;
 using XmTestTask.Infrastructure.Data;
 using XmTestTask.Infrastructure.HttpClientServices;
-using Module = Autofac.Module;
 
 namespace TestTaskTemplate.Infrastructure;
 public class InfrastructureModule : Module

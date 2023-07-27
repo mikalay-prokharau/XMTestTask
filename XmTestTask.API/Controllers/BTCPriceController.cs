@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Swashbuckle.AspNetCore.Annotations;
 using XmTestTask.API.Filters;
 using XmTestTask.API.ViewModels;
 using XmTestTask.Core.Helpers;
@@ -28,7 +27,8 @@ namespace XmTestTask.Controllers
         [ValidDateParam("date")]
         public async Task<IActionResult> Get([BindRequired] long date, CancellationToken cancellationToken)
         {
-            var btcPrice = await btcPricecService.GetBTCPrice(DateHelper.ConvertUnixDateToInt(date), cancellationToken);
+            var dateIntFormat = DateHelper.ConvertUnixDateToInt(date);
+            var btcPrice = await btcPricecService.GetBTCPrice(dateIntFormat, cancellationToken);
             var result = BTCPriceViewModel.FromBTCPrice(btcPrice);
             return Ok(result);
         }
@@ -44,6 +44,8 @@ namespace XmTestTask.Controllers
         [ValidDateParam("endDate")]
         public async Task<IActionResult> GetList([BindRequired, FromQuery] long startDate, [BindRequired, FromQuery] long endDate, CancellationToken cancellationToken)
         {
+            var startDateIntFormat = DateHelper.ConvertUnixDateToInt(startDate);
+            var endDateIntFormat = DateHelper.ConvertUnixDateToInt(endDate);
             var btcPrices = await btcPricecService.GetBTCPricesByDateRange(DateHelper.ConvertUnixDateToInt(startDate), DateHelper.ConvertUnixDateToInt(endDate), cancellationToken);
             var result = btcPrices.Select(c => BTCPriceViewModel.FromBTCPrice(c));
             return Ok(result);

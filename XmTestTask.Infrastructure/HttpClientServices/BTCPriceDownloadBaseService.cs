@@ -1,6 +1,4 @@
-﻿using Autofac.Core;
-using Newtonsoft.Json.Linq;
-using XmTestTask.Core.Entities;
+﻿using XmTestTask.Core.Entities;
 using XmTestTask.Core.Exceptions;
 
 namespace XmTestTask.Infrastructure.HttpClientServices

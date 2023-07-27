@@ -22,7 +22,7 @@ namespace XmTestTask.API.Filters
         {
             if (!context.ActionArguments.ContainsKey(ParamName) ||
                           !DateHelper.IsUnixDateHasHourAccuracy(context.ActionArguments[ParamName]?.ToString()))
-                context.Result = new BadRequestObjectResult($"The {ParamName} should be in unix millisecods format with the hour accuracy ");
+                context.Result = new BadRequestObjectResult($"The {ParamName} should be in unix format with the hour accuracy ");
         }
     }
 }
