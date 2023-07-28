@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Concurrent;
+using System.Threading.Tasks;
 using XmTestTask.Core.Entities;
 using XmTestTask.Core.Interfaces;
 
@@ -25,11 +26,12 @@ namespace XmTestTask.Core.Services
             if (price != null)
                 return price;
 
-            List<BTCPrice> newPrices = new List<BTCPrice>();
-            foreach (var service in downloadServices)
+            var newPrices = new ConcurrentBag<BTCPrice>();
+
+            await Parallel.ForEachAsync(downloadServices, cancelationToken, async (service, token) =>
             {
-                newPrices.Add(await service.GetBTCPrice(date, cancelationToken));
-            }
+                newPrices.Add(await service.GetBTCPrice(date, token));
+            }); 
 
             var newPrice = new BTCPrice() { Price = calculationService.Calculate(newPrices), Date = date };
 
