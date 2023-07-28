@@ -1,4 +1,4 @@
-# BTC-Price-API
+# XMTestTask
 
 Instalation Guide
 
